@@ -9,7 +9,7 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/20">
+    <div className="min-h-screen bg-transparent text-foreground overflow-x-hidden selection:bg-primary/20 relative z-10">
       <Navbar />
       <Hero />
       <About />
