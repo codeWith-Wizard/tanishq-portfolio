@@ -31,8 +31,8 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold font-signature tracking-normal text-foreground group">
-          Tanishq<span className="text-primary group-hover:animate-pulse font-sans">.</span>
+        <Link href="/" className="text-xl font-bold font-heading tracking-tighter text-foreground group">
+          Tanishq<span className="text-primary group-hover:animate-pulse">.</span>
         </Link>
 
         {/* Desktop Nav */}

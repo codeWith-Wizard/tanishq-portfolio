@@ -24,7 +24,7 @@ export function Hero() {
             className="flex items-center gap-3 mb-6"
           >
             <div className="h-[1px] w-8 bg-primary" />
-            <span className="text-primary font-signature text-2xl tracking-normal capitalize">Tanishq Saha</span>
+            <span className="text-primary font-mono text-sm tracking-[0.3em] uppercase font-semibold">Tanishq Saha</span>
           </motion.div>
 
           <h1 className="text-6xl md:text-9xl font-bold font-heading tracking-tighter mb-8 leading-[0.85] bg-gradient-to-r from-white via-white to-white/40 bg-clip-text text-transparent">
