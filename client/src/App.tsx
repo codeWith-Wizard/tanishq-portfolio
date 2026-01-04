@@ -10,38 +10,42 @@ import NotFound from "@/pages/not-found";
 
 function TechBackground() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#020205]">
       {/* Grainy Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
-      {/* Animated Tech Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/20 blur-[120px] rounded-full animate-pulse [animation-delay:2s]" />
+      {/* Large Neon Blurred Blobs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/30 blur-[160px] rounded-full animate-move-slow mix-blend-screen" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/20 blur-[140px] rounded-full animate-move-medium mix-blend-screen" />
+      <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full animate-move-fast mix-blend-screen" />
       
+      {/* Glassmorphism Frost Layer */}
+      <div className="absolute inset-0 backdrop-blur-[80px] opacity-40" />
+
       {/* Moving Grid Lines */}
       <div 
-        className="absolute inset-0 opacity-[0.15]" 
+        className="absolute inset-0 opacity-[0.08]" 
         style={{
           backgroundImage: `linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-          maskImage: 'radial-gradient(circle at center, black, transparent 80%)'
+          backgroundSize: '80px 80px',
+          maskImage: 'radial-gradient(circle at center, black, transparent 90%)'
         }}
       />
 
       {/* Floating Particles/Squares */}
       <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-primary/20 border border-primary/30 backdrop-blur-sm"
+            className="absolute bg-white/5 border border-white/10 backdrop-blur-md rounded-lg shadow-2xl"
             style={{
-              width: Math.random() * 100 + 50 + 'px',
-              height: Math.random() * 100 + 50 + 'px',
+              width: Math.random() * 80 + 40 + 'px',
+              height: Math.random() * 80 + 40 + 'px',
               top: Math.random() * 100 + '%',
               left: Math.random() * 100 + '%',
               transform: `rotate(${Math.random() * 360}deg)`,
-              animation: `float ${Math.random() * 10 + 20}s linear infinite`,
-              opacity: 0.1
+              animation: `float ${Math.random() * 15 + 20}s linear infinite`,
+              opacity: 0.15
             }}
           />
         ))}
