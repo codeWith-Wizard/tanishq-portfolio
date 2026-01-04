@@ -1,41 +1,35 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+
+// Import generated images
+import picoImg from "@assets/generated_images/interactive_7dof_robot_ai_assistant_face_3d_render.png";
+import roverImg from "@assets/generated_images/esp32_vision_rover_robot_terrain_3d_render.png";
+import sageImg from "@assets/generated_images/smart_iot_watering_system_technical_visualization.png";
 
 const projects = [
   {
-    title: "Pico: Emotion-Responsive AI Robot",
-    description: "A 7-DOF interactive robot integrating embedded control, wireless communication, and AI-driven behavior.",
-    details: [
-      "Implemented ESP32-based control with ESP-NOW for low-latency communication.",
-      "Designed expressive OLED-based facial feedback and capacitive touch sensing.",
-      "Integrated laptop-side AI system for complex behavior processing."
-    ],
-    tags: ["ESP32", "Robotics", "AI", "HRI", "Embedded C++"],
-    links: { github: "#", demo: "#" }
+    id: "pico",
+    title: "Pico: AI Assistant Robot",
+    description: "A 7-DOF interactive robot with ESP32 control and AI behavior.",
+    image: picoImg,
+    tags: ["ESP32", "Robotics", "HRI"]
   },
   {
-    title: "Vision-Capable Mobile Rover",
-    description: "Mobile robotic rover using ESP32-CAM for real-time visual feedback and teleoperation.",
-    details: [
-      "Built custom handheld controller for bidirectional command and data exchange.",
-      "Implemented low-latency wireless control/telemetry via ESP-NOW.",
-      "Foundation for future autonomous navigation research."
-    ],
-    tags: ["Computer Vision", "Teleoperation", "IoT", "PCB Design"],
-    links: { github: "#", demo: "#" }
+    id: "rover",
+    title: "Vision Mobile Rover",
+    description: "Real-time visual feedback rover via ESP-NOW protocol.",
+    image: roverImg,
+    tags: ["Vision", "IoT", "ESP-NOW"]
   },
   {
-    title: "Sage.AI: Smart Watering System",
-    description: "Embedded control system for sensor-driven water delivery in solar panel installations.",
-    details: [
-      "MQTT-based communication with Python backend for real-time monitoring.",
-      "Unity simulation for system validation and synthetic data generation.",
-      "Optimized for resource-constrained environments."
-    ],
-    tags: ["IoT", "MQTT", "Python", "Unity", "Simulation"],
-    links: { github: "#", demo: "#" }
+    id: "sage",
+    title: "Sage.AI: Smart Watering",
+    description: "IoT sensor-driven water delivery for solar installations.",
+    image: sageImg,
+    tags: ["IoT", "Python", "MQTT"]
   }
 ];
 
@@ -56,38 +50,43 @@ export function Projects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full bg-card/40 border-white/5 hover:border-primary/50 transition-all duration-300 group overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold font-heading group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-base mt-2">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground marker:text-primary">
-                    {project.details.map((detail, i) => (
-                      <li key={i}>{detail}</li>
-                    ))}
-                  </ul>
-                  
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="border-white/10 text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
+              <Link href={`/project/${project.id}`}>
+                <Card className="h-full bg-card/40 border-white/5 hover:border-primary/50 transition-all duration-500 group overflow-hidden cursor-pointer">
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
                   </div>
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <CardTitle className="text-xl font-bold font-heading group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      <ArrowRight className="h-5 w-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
+                    </div>
+                    <CardDescription className="line-clamp-2">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="outline" className="border-white/10 text-[10px] uppercase tracking-wider">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </div>

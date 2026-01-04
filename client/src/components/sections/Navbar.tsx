@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -29,10 +30,10 @@ export function Navbar() {
         scrolled ? "bg-background/80 backdrop-blur-md border-b border-white/5" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold font-heading tracking-tighter text-foreground">
-          Tanishq<span className="text-primary">.</span>
-        </a>
+      <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold font-heading tracking-tighter text-foreground group">
+          Tanishq<span className="text-primary group-hover:animate-pulse">.</span>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
@@ -40,14 +41,16 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs font-mono tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <Button variant="outline" className="border-primary/20 hover:bg-primary/10 hover:text-primary" asChild>
-             <a href="#contact">Resume</a>
-          </Button>
+          <Link href="/resume">
+            <Button variant="outline" className="rounded-none border-primary/20 hover:bg-primary/10 hover:text-primary text-xs uppercase font-mono tracking-widest">
+               Resume
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -66,7 +69,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-lg border-b border-white/10 p-6 flex flex-col space-y-4"
+            className="md:hidden absolute top-20 left-0 w-full bg-background/95 backdrop-blur-lg border-b border-white/10 p-6 flex flex-col space-y-4"
           >
             {navLinks.map((link) => (
               <a
@@ -78,6 +81,9 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
+            <Link href="/resume" onClick={() => setIsOpen(false)}>
+              <span className="text-lg font-medium text-primary uppercase">Resume</span>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

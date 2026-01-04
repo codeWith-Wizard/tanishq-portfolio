@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
+import xaiImg from "@assets/generated_images/smart_agriculture_ai_rover_with_robotic_arm_3d_render.png";
 
 const experience = [
   {
+    id: "elc-intern",
     role: "Summer ELC Intern",
     company: "Experiential Learning Centre",
     period: "June 2025 – July 2025",
-    description: "Worked on 'XAI-Driven Rover with Robotic Arm for Smart Pest and Disease Detection'. Integrated computer vision with embedded control for real-time inference. Developed an autonomous rover with a robotic arm for targeted intervention to reduce pesticide usage."
+    image: xaiImg,
+    description: "Developed 'XAI-Driven Rover with Robotic Arm'. Integrated computer vision with embedded control for real-time inference on autonomous farming platforms."
   }
 ];
 
@@ -23,28 +27,62 @@ export function Experience() {
           <div className="h-1 w-20 bg-primary" />
         </motion.div>
 
-        <div className="max-w-3xl space-y-12 relative border-l border-white/10 ml-3 md:ml-6 pl-8 md:pl-12 py-4">
+        <div className="grid gap-12">
           {experience.map((item, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="group"
             >
-              <span className="absolute -left-[41px] md:-left-[57px] top-1 h-5 w-5 rounded-full bg-primary border-4 border-background" />
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-foreground font-heading">{item.role}</h3>
-                <span className="text-primary font-mono text-sm mt-1 sm:mt-0">{item.period}</span>
-              </div>
-              <p className="text-lg text-white/80 font-medium mb-2">{item.company}</p>
-              <p className="text-muted-foreground leading-relaxed">
-                {item.description}
-              </p>
+              <Link href={`/experience/${item.id}`}>
+                <div className="grid md:grid-cols-2 gap-8 items-center cursor-pointer">
+                  <div className="relative overflow-hidden aspect-video rounded-xl border border-white/5">
+                    <img 
+                      src={item.image} 
+                      alt={item.role}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                  </div>
+                  <div className="space-y-4">
+                    <span className="text-primary font-mono text-sm">{item.period}</span>
+                    <h3 className="text-3xl font-bold font-heading group-hover:text-primary transition-colors">{item.role}</h3>
+                    <p className="text-xl text-white/70">{item.company}</p>
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                      {item.description}
+                    </p>
+                    <div className="pt-4 flex items-center text-primary text-sm font-mono tracking-tighter uppercase gap-2">
+                      Case Study <ArrowRight className="h-4 w-4" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ArrowRight(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }
