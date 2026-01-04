@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -9,8 +10,27 @@ import ExperienceDetail from "@/pages/ExperienceDetail";
 import NotFound from "@/pages/not-found";
 
 function TechBackground() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#020205]">
+      {/* Interactive Cursor Light */}
+      <div 
+        className="absolute w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] mix-blend-screen transition-transform duration-300 ease-out"
+        style={{
+          left: mousePos.x - 300 + 'px',
+          top: mousePos.y - 300 + 'px',
+        }}
+      />
+      
       {/* Grainy Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
