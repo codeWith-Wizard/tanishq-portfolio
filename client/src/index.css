@@ -97,9 +97,19 @@
     text-shadow: 0 0 20px hsla(var(--primary), 0.5);
   }
   .glass-card {
-    @apply bg-card/50 backdrop-blur-md border border-white/5;
+    @apply bg-card/40 backdrop-blur-xl border border-white/10 shadow-2xl;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    background-repeat: repeat;
+    background-size: 100px;
   }
   .neon-border {
     box-shadow: 0 0 10px -2px hsla(var(--primary), 0.3);
   }
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, 5%) rotate(5deg); }
+  66% { transform: translate(-2%, 3%) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
