@@ -115,33 +115,45 @@
 }
 
 @keyframes move-slow {
-  0% { transform: translate(-20%, -20%) scale(1); }
-  33% { transform: translate(20%, 10%) scale(1.1); }
-  66% { transform: translate(-10%, 20%) scale(0.9); }
-  100% { transform: translate(-20%, -20%) scale(1); }
+  0% { transform: translate(-20%, -20%) scale(1) rotate(0deg); }
+  33% { transform: translate(30%, 15%) scale(1.2) rotate(120deg); }
+  66% { transform: translate(-15%, 35%) scale(0.8) rotate(240deg); }
+  100% { transform: translate(-20%, -20%) scale(1) rotate(360deg); }
 }
 
 @keyframes move-medium {
-  0% { transform: translate(20%, 20%) scale(1.1); }
-  33% { transform: translate(-10%, -20%) scale(0.9); }
-  66% { transform: translate(10%, -10%) scale(1); }
-  100% { transform: translate(20%, 20%) scale(1.1); }
+  0% { transform: translate(25%, 25%) scale(1.1) rotate(0deg); }
+  33% { transform: translate(-20%, -30%) scale(0.8) rotate(-120deg); }
+  66% { transform: translate(15%, -15%) scale(1.2) rotate(-240deg); }
+  100% { transform: translate(25%, 25%) scale(1.1) rotate(-360deg); }
 }
 
 @keyframes move-fast {
-  0% { transform: translate(0%, 0%) scale(1); }
-  50% { transform: translate(15%, -15%) scale(1.2); }
-  100% { transform: translate(0%, 0%) scale(1); }
+  0% { transform: translate(0%, 0%) scale(1) rotate(0deg); }
+  50% { transform: translate(20%, -25%) scale(1.3) rotate(180deg); }
+  100% { transform: translate(0%, 0%) scale(1) rotate(360deg); }
+}
+
+@keyframes float-dynamic {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10vw, 15vh) rotate(90deg); }
+  50% { transform: translate(-5vw, 25vh) rotate(180deg); }
+  75% { transform: translate(-15vw, 10vh) rotate(270deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
 }
 
 .animate-move-slow {
-  animation: move-slow 25s ease-in-out infinite;
+  animation: move-slow 20s ease-in-out infinite;
 }
 
 .animate-move-medium {
-  animation: move-medium 20s ease-in-out infinite;
+  animation: move-medium 15s ease-in-out infinite;
 }
 
 .animate-move-fast {
-  animation: move-fast 15s ease-in-out infinite;
+  animation: move-fast 10s ease-in-out infinite;
+}
+
+.animate-float-dynamic {
+  animation: float-dynamic 30s linear infinite;
 }

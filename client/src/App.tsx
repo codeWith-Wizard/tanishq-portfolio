@@ -34,18 +34,18 @@ function TechBackground() {
 
       {/* Floating Particles/Squares */}
       <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white/5 border border-white/10 backdrop-blur-md rounded-lg shadow-2xl"
+            className="absolute bg-white/5 border border-white/10 backdrop-blur-md rounded-lg shadow-2xl animate-float-dynamic"
             style={{
-              width: Math.random() * 80 + 40 + 'px',
-              height: Math.random() * 80 + 40 + 'px',
+              width: Math.random() * 100 + 50 + 'px',
+              height: Math.random() * 100 + 50 + 'px',
               top: Math.random() * 100 + '%',
               left: Math.random() * 100 + '%',
-              transform: `rotate(${Math.random() * 360}deg)`,
-              animation: `float ${Math.random() * 15 + 20}s linear infinite`,
-              opacity: 0.15
+              animationDelay: `${Math.random() * -30}s`,
+              animationDuration: `${25 + Math.random() * 20}s`,
+              opacity: 0.1
             }}
           />
         ))}
