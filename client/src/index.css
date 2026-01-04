@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -9,7 +10,7 @@
 @theme inline {
   --font-sans: "Inter", sans-serif;
   --font-heading: "Space Grotesk", sans-serif;
-  --font-signature: "Dancing Script", cursive;
+  --font-signature: "Mr Dafoe", cursive;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
