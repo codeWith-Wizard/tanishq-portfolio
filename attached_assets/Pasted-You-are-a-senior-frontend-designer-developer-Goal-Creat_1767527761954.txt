@@ -1,0 +1,89 @@
+You are a senior frontend designer + developer.
+
+Goal:
+Create a personal portfolio website using the content from my uploaded CV.
+The portfolio must feel:
+- Minimalist
+- Bold
+- Premium
+- Dark-themed
+- Technical yet artistic
+
+Design Language:
+- Dark theme as default (near-black background, not pure black)
+- Accent colors: neon cyan, electric purple, soft teal, or neon green (use sparingly)
+- High contrast typography
+- Clean spacing, strong hierarchy
+- Subtle glow effects on hover (very minimal, not flashy)
+- Smooth micro-animations (fade, slide, underline reveal)
+
+Typography:
+- Headings: Modern sans-serif (Inter, Poppins, or Space Grotesk)
+- Body: Clean readable font (Inter / DM Sans)
+- Use font-weight contrast instead of many colors
+
+Layout Structure:
+1. Hero Section
+   - Name in bold large text
+   - Short powerful one-liner tagline (derived from CV)
+   - Minimal background gradient or noise texture
+   - Call-to-action buttons: "Projects", "Resume", "Contact"
+
+2. About Section
+   - Short, crisp summary generated from CV
+   - Focus on curiosity, engineering mindset, and ambition
+   - Avoid long paragraphs
+
+3. Skills Section
+   - Group skills into categories:
+     - Electronics & Embedded Systems
+     - Robotics & ROS
+     - AI / ML / Data Science
+     - Programming & Tools
+   - Use cards or minimal pill-style tags
+
+4. Projects Section (VERY IMPORTANT)
+   - Highlight key projects from CV
+   - Each project card should include:
+     - Title
+     - 1–2 line problem statement
+     - Tech stack used
+     - Outcome / learning
+   - Dark cards with subtle borders or glow on hover
+
+5. Experience / Research / Competitions (if applicable)
+   - Timeline or clean stacked layout
+   - Focus on impact, not descriptions
+
+6. Education Section
+   - Clean and minimal
+   - Highlight degree, institution, CGPA
+
+7. Contact Section
+   - Minimal form OR simple email + socials
+   - Icons only (GitHub, LinkedIn, Email)
+
+UI / UX Requirements:
+- Fully responsive (mobile-first)
+- Smooth scrolling
+- Hover effects only where meaningful
+- No clutter, no unnecessary animations
+
+Tech Stack:
+- HTML + CSS + JS OR React (choose best)
+- Use Tailwind CSS if possible
+- No heavy libraries
+- Optimized for performance
+
+Theme Mood Keywords:
+“Calm intelligence”, “Quiet confidence”, “Engineer with vision”, “Future-focused”
+
+Extra:
+- Generate placeholder copy if CV data is missing
+- Make everything easily editable
+- Keep code clean and well-commented
+
+Deliverables:
+- Full working code
+- Dark theme enabled by default
+- Clean folder structure
