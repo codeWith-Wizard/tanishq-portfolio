@@ -31,16 +31,19 @@ export default function ExperienceDetail() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-background text-foreground"
+      className="min-h-screen bg-transparent text-foreground relative z-10"
     >
       <div className="container mx-auto px-6 py-12 md:py-24">
         <Link href="/">
-          <Button variant="ghost" className="mb-12 group">
-            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back
+          <Button variant="ghost" className="mb-12 group text-muted-foreground hover:text-primary transition-colors">
+            <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" /> Back to Home
           </Button>
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="glass-card p-8 md:p-16 grid lg:grid-cols-2 gap-16 relative overflow-hidden">
+          {/* Decorative Corner Glow */}
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
+          
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
