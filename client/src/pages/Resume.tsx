@@ -25,7 +25,7 @@ export default function ResumePage() {
           <header className="border-b border-white/10 pb-12 mb-12">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
               <div className="text-center md:text-left">
-                <h1 className="text-6xl font-bold font-heading mb-4 tracking-tighter bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                <h1 className="text-7xl font-bold font-signature mb-4 tracking-normal bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent italic">
                   Tanishq
                 </h1>
                 <p className="text-primary font-mono uppercase tracking-[0.3em] text-sm font-semibold">
