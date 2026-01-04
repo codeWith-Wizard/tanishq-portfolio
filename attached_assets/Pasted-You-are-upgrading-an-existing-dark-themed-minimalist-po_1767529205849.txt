@@ -1,0 +1,111 @@
+You are upgrading an existing dark-themed minimalist portfolio.
+
+Primary Goal:
+Enhance the UI using glassmorphism and subtle animated background elements,
+while preserving a premium, calm, and professional feel.
+
+IMPORTANT:
+This is NOT a flashy cyberpunk site.
+Animations must feel slow, elegant, and intentional.
+
+--------------------------------
+GLASSMORPHISM SYSTEM
+--------------------------------
+Apply glassmorphism selectively, NOT everywhere.
+
+Use it for:
+- Navbar
+- Hero card / intro container
+- Project cards
+- Skills cards
+- Contact section
+
+Glass Style Rules:
+- background: rgba(255, 255, 255, 0.05–0.12)
+- backdrop-filter: blur(12px–20px) saturate(120%)
+- border: 1px solid rgba(255,255,255,0.08)
+- border-radius: 14–20px
+- soft shadow (low opacity, large spread)
+- NO harsh borders
+
+The page background itself should remain dark and clean.
+
+--------------------------------
+LIVING BACKGROUND (VERY IMPORTANT)
+--------------------------------
+Add animated background elements that make the site feel alive.
+
+Background Elements:
+- Soft neon light blobs / orbs
+- Gradient blobs with blur
+- Slow floating motion (CSS keyframes or requestAnimationFrame)
+- Low opacity (0.15–0.35)
+- Large size (avoid small particles)
+
+Colors:
+- Neon cyan
+- Electric purple
+- Soft teal
+- Optional muted magenta
+
+Rules:
+- Background lights must NEVER distract from content
+- They should sit behind everything
+- Motion should be slow and organic (like breathing)
+
+--------------------------------
+CURSOR-REACTIVE LIGHT BLOBS (CRITICAL)
+--------------------------------
+Add 1–2 interactive neon blobs that:
+- Smoothly follow the cursor with easing
+- Lag slightly behind the cursor (inertia effect)
+- Grow subtly on hover over glass elements
+- Fade when cursor is idle
+
+Technical Guidance:
+- Use JS to track mouse position
+- Apply transform: translate3d()
+- Add blur: 80–120px
+- Use mix-blend-mode: screen OR normal with low opacity
+- Disable on mobile automatically
+
+--------------------------------
+ANIMATION GUIDELINES
+--------------------------------
+- No fast animations
+- No bouncing
+- No excessive glow
+- No flashing
+- Prefer opacity + transform animations
+
+Examples:
+- Glass cards slightly lift on hover
+- Subtle light intensity change on hover
+- Background blobs drift slowly
+
+--------------------------------
+PERFORMANCE RULES
+--------------------------------
+- Use GPU-friendly transforms
+- Avoid heavy canvas unless optimized
+- Respect prefers-reduced-motion
+- Keep JS minimal and clean
+
+--------------------------------
+MOOD & FEEL
+--------------------------------
+Keywords:
+"Living interface"
+"Soft intelligence"
+"Glass + light + depth"
+"Calm but powerful"
+"Engineer with taste"
+
+--------------------------------
+DELIVERABLES
+--------------------------------
+- Implement glassmorphism cleanly
+- Add animated background lights
+- Add cursor-following neon blobs
+- Keep site readable and minimal
+- Comment the code clearly

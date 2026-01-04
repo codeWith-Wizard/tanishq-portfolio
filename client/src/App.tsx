@@ -11,65 +11,49 @@ import NotFound from "@/pages/not-found";
 
 function TechBackground() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isIdle, setIsIdle] = useState(false);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
+      setIsIdle(false);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setIsIdle(true), 2000);
     };
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#020205]">
-      {/* Interactive Cursor Light */}
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#030308]">
+      {/* Interactive Cursor Light (The "Soft Intelligence" Blob) */}
       <div 
-        className="absolute w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] mix-blend-screen transition-transform duration-300 ease-out"
+        className="absolute w-[600px] h-[600px] rounded-full bg-primary/15 blur-[100px] mix-blend-screen transition-all duration-700 ease-out"
         style={{
           left: mousePos.x - 300 + 'px',
           top: mousePos.y - 300 + 'px',
+          opacity: isIdle ? 0 : 1,
+          transform: 'translate3d(0,0,0)'
         }}
       />
       
-      {/* Grainy Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      
-      {/* Large Neon Blurred Blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/30 blur-[160px] rounded-full animate-move-slow mix-blend-screen" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/20 blur-[140px] rounded-full animate-move-medium mix-blend-screen" />
-      <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full animate-move-fast mix-blend-screen" />
-      
-      {/* Glassmorphism Frost Layer */}
-      <div className="absolute inset-0 backdrop-blur-[80px] opacity-40" />
+      {/* Subtle Breathing Neon Orbs */}
+      <div className="absolute top-[10%] left-[15%] w-[45%] h-[45%] bg-[#00ffff]/10 blur-[150px] rounded-full animate-breathing mix-blend-screen" />
+      <div className="absolute bottom-[15%] right-[20%] w-[40%] h-[40%] bg-[#7000ff]/10 blur-[150px] rounded-full animate-breathing [animation-delay:4s] mix-blend-screen" />
+      <div className="absolute top-[40%] right-[10%] w-[35%] h-[35%] bg-[#00f5ff]/5 blur-[120px] rounded-full animate-drift mix-blend-screen" />
 
-      {/* Moving Grid Lines */}
+      {/* Very subtle grid for depth */}
       <div 
-        className="absolute inset-0 opacity-[0.08]" 
+        className="absolute inset-0 opacity-[0.03]" 
         style={{
-          backgroundImage: `linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-          maskImage: 'radial-gradient(circle at center, black, transparent 90%)'
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '120px 120px',
         }}
       />
-
-      {/* Floating Particles/Squares */}
-      <div className="absolute inset-0">
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white/5 border border-white/10 backdrop-blur-md rounded-lg shadow-2xl animate-float-dynamic"
-            style={{
-              width: Math.random() * 100 + 50 + 'px',
-              height: Math.random() * 100 + 50 + 'px',
-              top: Math.random() * 100 + '%',
-              left: Math.random() * 100 + '%',
-              animationDelay: `${Math.random() * -30}s`,
-              animationDuration: `${25 + Math.random() * 20}s`,
-              opacity: 0.1
-            }}
-          />
-        ))}
-      </div>
     </div>
   );
 }
