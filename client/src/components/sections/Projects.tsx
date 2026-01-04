@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 // Import generated images
-import picoImg from "@assets/generated_images/interactive_7dof_robot_ai_assistant_face_3d_render.png";
+import picoImg from "@assets/generated_images/interactive_7-dof_robot_ai_assistant_face_3d_render.png";
 import roverImg from "@assets/generated_images/esp32_vision_rover_robot_terrain_3d_render.png";
 import sageImg from "@assets/generated_images/smart_iot_watering_system_technical_visualization.png";
 
