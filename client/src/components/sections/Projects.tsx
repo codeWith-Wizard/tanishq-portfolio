@@ -57,26 +57,24 @@ export function Projects() {
               transition={{ delay: index * 0.1 }}
             >
               <Link href={`/project/${project.id}`}>
-                <Card className="h-full bg-card/40 border-white/5 hover:border-primary/50 transition-all duration-500 group overflow-hidden cursor-pointer">
+                <div className="glass-card h-full group overflow-hidden cursor-pointer">
                   <div className="aspect-video overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                     />
                   </div>
-                  <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-xl font-bold font-heading group-hover:text-primary transition-colors">
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-bold font-heading group-hover:text-primary transition-colors">
                         {project.title}
-                      </CardTitle>
+                      </h3>
                       <ArrowRight className="h-5 w-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
                     </div>
-                    <CardDescription className="line-clamp-2">
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                       {project.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
                         <Badge key={tag} variant="outline" className="border-white/10 text-[10px] uppercase tracking-wider">
@@ -84,8 +82,8 @@ export function Projects() {
                         </Badge>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </Link>
             </motion.div>
           ))}

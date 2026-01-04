@@ -37,24 +37,28 @@ export function Experience() {
               className="group"
             >
               <Link href={`/experience/${item.id}`}>
-                <div className="grid md:grid-cols-2 gap-8 items-center cursor-pointer">
+                <div className="glass-card p-8 grid md:grid-cols-2 gap-8 items-center cursor-pointer relative overflow-hidden">
+                  <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary/10 blur-3xl rounded-full" />
                   <div className="relative overflow-hidden aspect-video rounded-xl border border-white/5">
                     <img 
                       src={item.image} 
                       alt={item.role}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                   </div>
                   <div className="space-y-4">
-                    <span className="text-primary font-mono text-sm">{item.period}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                      <span className="text-primary font-mono text-sm tracking-widest">{item.period}</span>
+                    </div>
                     <h3 className="text-3xl font-bold font-heading group-hover:text-primary transition-colors">{item.role}</h3>
                     <p className="text-xl text-white/70">{item.company}</p>
-                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground leading-relaxed">
                       {item.description}
                     </p>
-                    <div className="pt-4 flex items-center text-primary text-sm font-mono tracking-tighter uppercase gap-2">
-                      Case Study <ArrowRight className="h-4 w-4" />
+                    <div className="pt-4 flex items-center text-primary text-sm font-mono tracking-tighter uppercase gap-2 group/btn">
+                      View Case Study <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                     </div>
                   </div>
                 </div>
