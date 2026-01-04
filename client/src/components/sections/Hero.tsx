@@ -30,15 +30,6 @@ export function Hero() {
           <h1 className="text-6xl md:text-9xl font-bold font-heading tracking-tighter mb-8 leading-[0.85] bg-gradient-to-r from-white via-white to-white/40 bg-clip-text text-transparent">
             Architecting <br />
             Robotic Intel.
-            <motion.span 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="block text-4xl md:text-6xl font-signature text-primary/80 mt-4 ml-auto text-right pr-4"
-              style={{ fontFamily: 'var(--font-signature)' }}
-            >
-              Tanishq
-            </motion.span>
           </h1>
           
           <p className="text-muted-foreground text-xl md:text-2xl max-w-2xl mb-12 leading-relaxed font-light italic">
